@@ -1,0 +1,11 @@
+# -*- coding:utf-8-unix -*-
+
+[package]
+name = "abc"
+version = "0.1.0"
+authors = ["spihill"]
+edition = "2018"
+
+[dependencies]
+num = "=0.2.1"
+alga = "=0.9.3"
