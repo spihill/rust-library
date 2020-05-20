@@ -9,7 +9,7 @@ fn main() {
 	input!{
 		n: usize,
 		q: usize,
-		a: [i32; n],
+		a: [i64; n],
 		query: [(usize, usize); q]
 	}
 	let rsq = RangeSum::build(&a);
