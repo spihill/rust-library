@@ -1,11 +1,26 @@
 # -*- coding:utf-8-unix -*-
 
 [package]
-name = "abc"
+name = "library"
 version = "0.1.0"
 authors = ["spihill"]
 edition = "2018"
 
 [dependencies]
-num = "=0.2.1"
-alga = "=0.9.3"
+proconio = { version = "=0.3.6", features = ["derive"] }
+
+# [[bin]]
+# name = "monoid"
+# path = "src/math/monoid.rs"
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
+
+[[bin]]
+name = "disjoint_sparse_table"
+path = "verify/yosupo/disjoint_sparse_table.test.rs"
+
+[[bin]]
+name = "disjoint_sparse_table_sum"
+path = "verify/yosupo/disjoint_sparse_table_sum.test.rs"

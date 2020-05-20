@@ -1,10 +1,10 @@
 use std::marker::PhantomData;
 use std::ops::Range;
-use alga::general::{Operator, AbstractMonoid};
+use crate::math::monoid::{Operator, Monoid};
 
 pub enum Node<T, O>
 where
-	T: AbstractMonoid<O>,
+	T: Monoid<O>,
 	O: Operator
 {
 	Nil(std::marker::PhantomData<O>),
@@ -17,7 +17,7 @@ where
 
 impl<T, O> Node<T, O> 
 where
-	T: AbstractMonoid<O>,
+	T: Monoid<O>,
 	O: Operator
 {
 	fn _set(&mut self, p: i64, v: &T, l: i64, r: i64) -> T {
@@ -69,7 +69,7 @@ where
 
 pub struct DynamicSegmentTree<T, O>
 where
-	T: AbstractMonoid<O>,
+	T: Monoid<O>,
 	O: Operator
 {
 	range: Range<i64>,
@@ -78,7 +78,7 @@ where
 
 impl<T, O> DynamicSegmentTree<T, O>
 where
-	T: AbstractMonoid<O>,
+	T: Monoid<O>,
 	O: Operator
 {
 	pub fn new(range: Range<i64>) -> Self {

@@ -1,11 +1,10 @@
 use std::marker::PhantomData;
 use std::ops::Range;
-use alga::general::{Operator, AbstractMonoid};
-use crate::math::monoid::{MaxMonoid, MinMonoid, AddMonoid, MulMonoid, Affine, GCD};
+use crate::math::monoid::{MaxMonoid, MinMonoid, AddMonoid, MulMonoid, Affine, GCD, Monoid, Operator};
 
 pub struct SegmentTree<T, O> 
 where
-	T: AbstractMonoid<O>,
+	T: Monoid<O>,
 	O: Operator,
 {
 	size: usize,
@@ -14,7 +13,7 @@ where
 }
 impl<T, O> SegmentTree<T, O>
 where
-	T: AbstractMonoid<O>,
+	T: Monoid<O>,
 	O: Operator
 {
 	pub fn new(sz: usize) -> Self {
