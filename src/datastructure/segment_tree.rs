@@ -1,6 +1,6 @@
 use std::marker::PhantomData;
 use std::ops::Range;
-use crate::math::monoid::{MaxMonoid, MinMonoid, AddMonoid, MulMonoid, Affine, GCD, Monoid, Operator};
+use crate::math::monoid::{Monoid, Operator};
 
 pub struct SegmentTree<T, O> 
 where
@@ -58,10 +58,3 @@ where
 		self.monoid[p + self.size-1].clone()
 	}
 }
-
-pub type RangeAffine<T> = SegmentTree<(T, T), Affine>;
-pub type RangeGCD<T> = SegmentTree<T, GCD>;
-pub type RangeSum<T> = SegmentTree<T, AddMonoid>;
-pub type RangeProduct<T> = SegmentTree<T, MulMonoid>;
-pub type RangeMin<T> = SegmentTree<T, MinMonoid>;
-pub type RangeMax<T> = SegmentTree<T, MaxMonoid>;

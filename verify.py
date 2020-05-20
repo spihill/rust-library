@@ -1,23 +1,22 @@
 import subprocess
 import sys
 
-problems = [['disjoint_sparse_table', 'https://judge.yosupo.jp/problem/staticrmq'],
-            ['disjoint_sparse_table_sum', 'https://judge.yosupo.jp/problem/static_range_sum']]
+problems = [
+            ['segment_tree_composite', 'https://judge.yosupo.jp/problem/point_set_range_composite'],
+            ['dynamic_segment_tree_composite', 'https://judge.yosupo.jp/problem/point_set_range_composite'],
+            ['diameter', 'https://judge.yosupo.jp/problem/tree_diameter'],
+            ['disjoint_sparse_table', 'https://judge.yosupo.jp/problem/staticrmq'],
+            ['disjoint_sparse_table_sum', 'https://judge.yosupo.jp/problem/static_range_sum'],
+           ]
 
+def exit_if_fail(result, message):
+	if result.returncode != 0:
+		print(message, file=sys.stderr)
+		exit(1)
 
 for P in problems:
-	result = subprocess.run('oj d --system ' + P[1], shell=True)
-
-	if result.returncode != 0:
-		print('Cannot download testcase or not found oj.', file=sys.stderr)
-		sys.exit(1)
-
-	result = subprocess.run('oj t -c ' + '"cargo run --release --bin ' + P[0] + ' "', shell=True)
-	if result.returncode != 0:
-		print('Verify failed', file=sys.stderr)
-		sys.exit(1)
-
-	result = subprocess.run('rm ./test -rf', shell=True)
-	if result.returncode != 0:
-		print('Unknown Error', file=sys.stderr)
-		sys.exit(1)
+	exit_if_fail(subprocess.run('oj d --system ' + P[1], shell=True), 'Cannot download testcase or not found oj.')
+	exit_if_fail(subprocess.run('oj t -c ' + '"cargo run --release --bin ' + P[0] + ' "', shell=True), 'Verify failed')
+	exit_if_fail(subprocess.run('rm ./test/*.in -rf', shell=True), 'Unknown Error')
+	exit_if_fail(subprocess.run('rm ./test/*.out -rf', shell=True), 'Unknown Error')
+	exit_if_fail(subprocess.run('rmdir ./test &> /dev/null || :', shell=True), 'Unknown Error')

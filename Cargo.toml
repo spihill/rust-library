@@ -24,3 +24,15 @@ path = "verify/yosupo/disjoint_sparse_table.test.rs"
 [[bin]]
 name = "disjoint_sparse_table_sum"
 path = "verify/yosupo/disjoint_sparse_table_sum.test.rs"
+
+[[bin]]
+name = "diameter"
+path = "verify/yosupo/diameter.test.rs"
+
+[[bin]]
+name = "segment_tree_composite"
+path = "verify/yosupo/segment_tree_composite.test.rs"
+
+[[bin]]
+name = "dynamic_segment_tree_composite"
+path = "verify/yosupo/dynamic_segment_tree_composite.test.rs"

@@ -99,12 +99,14 @@ macro_rules! impl_monoid {
 		impl_semigroup!($op, $tr, $f; $e; $($($t),*),*);
 		$($(
 			impl_identity!($op; $t => $id);
+			impl Monoid<$op> for $t{}
 		)*)*
 	};
 	($op:ident, $tr:ident, $f:ident; $e:expr; $($($t:ty),* => TYPE $id:ident());*) => {
 		impl_semigroup!($op, $tr, $f; $e; $($($t),*),*);
 		$($(
 			impl_identity!($op; $t => TYPE $id());
+			impl Monoid<$op> for $t{}
 		)*)*
 	};
 }

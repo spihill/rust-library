@@ -59,7 +59,7 @@ impl IndexType for (usize, usize) {
 	}
 }
 
-pub trait WeightedGraph<I: IndexType, T>
+pub trait WeightedGraphType<I: IndexType, T>
 {
 	fn new(n: I) -> Self;
 	fn add_edge(&mut self, from: usize, to: usize, v: &T);
@@ -78,20 +78,20 @@ pub trait WeightedGraph<I: IndexType, T>
 	}
 }
 
-pub struct Graph<I, T> {
-	size: I,
+pub struct WeightedGraph<T: Clone> {
+	size: usize,
 	edge: Vec<Vec<(usize, T)>>
 }
 
-impl<T: Clone, I: IndexType> WeightedGraph<I, T> for Graph<I, T> {
-	fn new(size: I) -> Self {
+impl<T: Clone> WeightedGraphType<usize, T> for WeightedGraph<T> {
+	fn new(size: usize) -> Self {
 		let edge = vec![Vec::new(); size.size()];
 		Self{size, edge}
 	}
 	fn add_edge(&mut self, from: usize, to: usize, v: &T) {
 		self.edge[from].push((to, v.clone()))
 	}
-	fn size(&self) -> I {
+	fn size(&self) -> usize {
 		self.size
 	}
 	fn e(&self, v: usize) -> &[(usize, T)] {
