@@ -14,8 +14,6 @@ def exit_if_fail(result, message):
 		print(message, file=sys.stderr)
 		exit(1)
 
-exit_if_fail(subprocess.run('ulimit -s unlimited', shell=True), 'Cannot run "ulimit -s unlimited')
-
 for P in problems:
 	exit_if_fail(subprocess.run('oj d --system ' + P[1], shell=True), 'Cannot download testcase or not found oj.')
 	exit_if_fail(subprocess.run('oj t -c ' + '"cargo run --release --bin ' + P[0] + ' "', shell=True), 'Verify failed')
