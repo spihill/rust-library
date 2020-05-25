@@ -18,6 +18,7 @@ def exit_if_fail(result, message):
 for P in yosupo_problems:
 
 	if len(sys.argv) > 1 and sys.argv[1] == 'bundle' and os.getenv('GITHUB_ACTIONS', default="-1") != "-1":
+		exit_if_fail(subprocess.run('oj d --system ' + P[1], shell=True), 'Cannot download testcase or not found oj.')
 		exit_if_fail(subprocess.run('cargo run --bin bundle library ./Cargo.toml ./verify/yosupo/' + P[0] + '.test.rs > src/main.rs', shell=True), 'Bundle failed')
 		exit_if_fail(subprocess.run('cargo build --release --bin main', shell=True), 'Bundle verify failed')
 		exit_if_fail(subprocess.run('oj t -c ' + '"target/release/main"', shell=True), 'Bundle verify failed')
