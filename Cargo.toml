@@ -9,10 +9,6 @@ edition = "2018"
 [dependencies]
 proconio = { version = "=0.3.6", features = ["derive"] }
 
-# [[bin]]
-# name = "monoid"
-# path = "src/math/monoid.rs"
-
 [[bin]]
 name = "main"
 path = "src/main.rs"
@@ -24,6 +20,7 @@ path = "src/bundle/main.rs"
 [[bin]]
 name = "disjoint_sparse_table"
 path = "verify/yosupo/disjoint_sparse_table.test.rs"
+problem = ""
 
 [[bin]]
 name = "disjoint_sparse_table_sum"
