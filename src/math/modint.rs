@@ -7,12 +7,6 @@ use std::num::ParseIntError;
 use std::fmt::{Display, Formatter};
 use std::convert::From;
 
-// impl From<u32> for ModInt<Mod107> {
-// 	fn from(x: u32) ->  Self {
-// 		Self(x % Mod107::modv())
-// 	}
-// }
-
 macro_rules! from_int_to_modint_sub {
 	($m:ty;$t:ty;$e:expr) => {
 		impl From<$t> for ModInt<$m> {

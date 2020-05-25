@@ -18,6 +18,10 @@ name = "main"
 path = "src/main.rs"
 
 [[bin]]
+name = "bundle"
+path = "src/bundle/main.rs"
+
+[[bin]]
 name = "disjoint_sparse_table"
 path = "verify/yosupo/disjoint_sparse_table.test.rs"
 
