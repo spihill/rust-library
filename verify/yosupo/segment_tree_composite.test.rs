@@ -1,3 +1,5 @@
+// "https://judge.yosupo.jp/problem/point_set_range_composite"
+
 use library::datastructure::segment_tree::*;
 use library::math::monoid::Affine;
 use library::math::modint::{ModInt, Mod998};

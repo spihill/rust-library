@@ -1,3 +1,5 @@
+// "https://judge.yosupo.jp/problem/static_range_sum"
+
 use library::datastructure::disjoint_sparse_table::DisjointSparseTable;
 use library::math::monoid::AddMonoid;
 use proconio::{input, fastout};

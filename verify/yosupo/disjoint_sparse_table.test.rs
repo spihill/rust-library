@@ -1,3 +1,5 @@
+// "https://judge.yosupo.jp/problem/staticrmq"
+
 use library::datastructure::disjoint_sparse_table::DisjointSparseTable;
 use library::math::monoid::MinMonoid;
 use proconio::{input, fastout};

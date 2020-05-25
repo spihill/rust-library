@@ -20,7 +20,6 @@ path = "src/bundle/main.rs"
 [[bin]]
 name = "disjoint_sparse_table"
 path = "verify/yosupo/disjoint_sparse_table.test.rs"
-problem = ""
 
 [[bin]]
 name = "disjoint_sparse_table_sum"

@@ -1,3 +1,5 @@
+// "https://judge.yosupo.jp/problem/tree_diameter"
+
 use library::graph::diameter::diameter;
 use library::graph::template::{WeightedGraph, WeightedGraphType};
 use proconio::{input, fastout};
