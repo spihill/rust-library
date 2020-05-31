@@ -36,3 +36,7 @@ path = "verify/yosupo/segment_tree_composite.test.rs"
 [[bin]]
 name = "dynamic_segment_tree_composite"
 path = "verify/yosupo/dynamic_segment_tree_composite.test.rs"
+
+[[bin]]
+name = "dijkstra"
+path = "verify/yosupo/dijkstra.test.rs"

@@ -76,6 +76,12 @@ pub trait WeightedGraphType<I: IndexType, T>
 	fn id_to_index(&self, id: usize) -> I {
 		<I>::from_id(id, self.size())
 	}
+	fn len(&self) -> usize {
+		self.size().size()
+	}
+	fn is_empty(&self) -> bool {
+		self.len() == 0
+	}
 }
 
 pub struct WeightedGraph<T: Clone> {
